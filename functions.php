@@ -13,7 +13,12 @@ function abort($code) {
   die();
 }
 
-function view($view) {
+function view($view, $data = []) {
+
+  foreach($data as $key => $value) {
+    $$key = $value;
+  }
+
   require "views/template/app.php";
 }
 

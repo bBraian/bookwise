@@ -10,5 +10,5 @@ This is a project to manage the books you are reading. It also have an explore p
 - [**🐘 PHP**](https://react.dev/)
 - [**🧢 Tailwind CSS**](https://tailwindcss.com/docs/installation)
 
-## Run
+## Run (You should have PHP installed locally)
 `php -S localhost:8888 -d auto_prepend_file=server.php`
