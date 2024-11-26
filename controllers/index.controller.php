@@ -1,8 +1,8 @@
 <?php
 
-// Model
+$db = new DB();
 
-require 'dados.php';
+$livros = $db->livros();
 
 view('index', [
   'livros' => $livros
