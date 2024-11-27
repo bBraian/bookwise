@@ -9,6 +9,6 @@
   </div>
 
   <div class="text-sm mt-2">
-    <?=$livro['descricao']?>
+    <?=$livro->descricao?>
   </div>
 </div>

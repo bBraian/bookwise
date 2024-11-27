@@ -1,7 +1,8 @@
 <form class="w-full flex space-x-2 mt-6">
   <input 
     type="text" 
-    placeholder="Pesquisar..." 
+    placeholder="Pesquisar..."
+    name="pesquisa"
     class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1"
     name="pesquisar"
   />
