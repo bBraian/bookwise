@@ -9,7 +9,7 @@
 <body class="bg-stone-950 text-stone-200">
   <?php
     $action = $_GET['action'] ?? 'login'; // Define o que mostrar, login ou cadastro
-    $messageType = 'success';
+    $validacoes = $_SESSION['validacoes'] ?? []; // Define o que mostrar, login ou cadastro
   ?>
 
   <main class="mx-auto max-w-screen-md py-12" style="min-height: calc(100vh - 64px);">
@@ -17,9 +17,8 @@
       <section class="space-y-6 text-center">
         <h1 class="text-3xl font-bold text-lime-500">Entrar</h1>
         <form method="POST" class="space-y-4">
-          <?php if(strlen($mensagem) > 0) : ?>
-            <div class="mb-6 p-4 rounded-lg text-center 
-              <?php echo $messageType === 'success' ? 'bg-green-900 text-green-400' : ($messageType === 'error' ? 'bg-red-500 text-stone-200' : 'bg-stone-700 text-stone-200'); ?>">
+          <?php if(isset($mensagem) && strlen($mensagem) > 0) : ?>
+            <div class="mb-6 p-4 rounded-lg text-center bg-green-900 text-green-400">
               <?php echo htmlspecialchars($mensagem); ?>
             </div>
           <?php endif; ?>
@@ -38,6 +37,15 @@
     <?php elseif ($action === 'register') : ?>
       <section class="space-y-6 text-center">
         <h1 class="text-3xl font-bold text-lime-500">Cadastrar</h1>
+        <?php if(sizeof($validacoes)) : ?>
+          <div class="mb-6 p-4 rounded-lg text-center bg-red-500 text-stone-200">
+            <ul>
+              <?php foreach ($validacoes as $validacoes) : ?>
+                <li><?php echo htmlspecialchars($validacoes); ?></li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        <?php endif; ?>
         <form method="POST" action="/registrar" class="space-y-4">
           <div>
             <label for="name" class="block text-left text-stone-400">Nome</label>
